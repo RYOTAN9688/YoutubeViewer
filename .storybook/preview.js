@@ -17,4 +17,4 @@ addDecorator(storyFn =>
         <GlobalStyle />
         {storyFn()}
     </>
-)
+);

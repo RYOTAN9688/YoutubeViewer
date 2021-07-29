@@ -11,6 +11,6 @@ ReactDOM.render(
     <>
         <GlobalStyle />
         <App />,
-        rootEl,
-    </>
+    </>,
+    rootEl,
 );
