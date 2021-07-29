@@ -20,7 +20,20 @@ module.exports = (api) => {
         ],
     ];
 
-    const plugins = [];
+    const plugins = [
+        [
+            "babel-plugin-styled-components",
+            isProduction
+                ? {
+                    filesize: false,//クラス名にファイル名を含めるかどうか
+                    displayName: false,//クラス名にReactのコンポーネント名を                   
+                    pure: true,//到着不能コードがある時にそれを除去するかどうか
+                }
+                : {
+                    minify: false,//Styles componentsによって生成されるcssのファイルサイズを小さくするかどうか
+                },
+        ],
+    ];
 
     return {
         presets,
