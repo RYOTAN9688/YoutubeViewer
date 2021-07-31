@@ -3,7 +3,7 @@ import Typography, { colors, sizes, aligns } from ".";
 
 export default { title: "atoms/Typography" };
 
-const sampleText = "This component is Typography";
+const sampleText = "This component is Typography.";
 
 //size,color,display,alignを設定したときにどのように表示されるかが
 //わかるようにstoryを作成
