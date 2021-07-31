@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import styled from "styled-components";
 
 const Root = styled.input`
-    width:100%;
-    padding:10px 15px;
-    font-size:16px;
-    border-radius:4px;
-    border: 2px solid #ddd;
-    box-sizing: border-box;
-    :focus{
-        border-color:rgba(100, 100, 255, .5);
-    }
-::placeholder{
-    color:"ddd;
-}
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  box-sizing: border-box;
+  :focus {
+    border-color: rgba(100, 100, 255, .5);
+  }
+  ::placeholder {
+    color: #ddd;
+  }
 `;
 
 //プレゼンテーショナル・コンポ―ネント 見た目の責務を持つ。
