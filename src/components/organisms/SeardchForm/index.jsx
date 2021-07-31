@@ -7,7 +7,7 @@ import Button from "~/components/atoms/Button"
 const Root = styled.div`
     width: 100%;
     display: flex;
-    align-itens: center;
+    align-items: center;
     > *:first-child{
         flex-grow: 1;
         margin-right: 20px;

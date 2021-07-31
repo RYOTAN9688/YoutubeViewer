@@ -18,4 +18,38 @@ const Root = styled.div`
 
 const Thumbnail = styled.div`
     flex-shrink: 1;
-`
+    min-width: 160px;
+    max-width: 160px;
+    >*{
+        width: 100%;
+    }
+`;
+
+const InfoWrapper = styled.div`
+    margin-left: 10px;
+    word-break: break-all;
+`;
+
+const Descfription = styled(Typography)`
+    margin-top: 5px;
+    height: fit-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient: vertical;
+`;
+
+const ViewCount = styled(Typography)`
+    margin-top: 5px;
+`;
+
+const VideoListItemPresenter = ({
+    className,
+    onclick,
+    ThumbnailUrl,
+    title,
+    description,
+    ViewCount,
+})
