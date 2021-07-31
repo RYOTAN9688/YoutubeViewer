@@ -26,22 +26,22 @@ const VideoList = ({
     loading,
 }) => (
     <>
-        {!loading && !videos.lenght && <Typography>ビデオがありません</Typography>}
+        {!loading && !videos.length && <Typography>ビデオがありません</Typography>}
         {/*videosの中身の数だけVideoListItemを表示*/}
         {videos.map((video) => (
-            <StyledVideoListItem key={videos.id} video={video} />
-        ))};
+            <StyledVideoListItem key={video.id} video={video} />
+        ))}
         {/*ロード中はSpinnerを表示*/}
         {loading && <Loading><Spinner /></Loading>}
     </>
 );
 
 VideoList.propTypes = {
-    videos: PropTypes.arrayOf(PropTypes.shape({})),//Propは特定のarrayでなければならない。
+    videos: PropTypes.arrayOf(PropTypes.shape({})),//配列の中の値の型までチェックし、型がバラバラの場合
     loading: PropTypes.bool,
 };
 
-Video.defaultProps = {
+VideoList.defaultProps = {
     videos: [],
     loading: false,
 };
