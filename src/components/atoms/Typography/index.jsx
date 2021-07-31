@@ -77,7 +77,7 @@ Typography.propTypes = {
     display: PropTypes.oneOf(displays),
     align: PropTypes.oneOf(aligns),
     bold: PropTypes.bool,//booleanであること
-    children: PropTypes.node.isRequired,//renderできるものであること
+    children: PropTypes.node.isRequired,//renderできるものであること(必須)
 };
 
 Typography.defaultProps = {
