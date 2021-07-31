@@ -20,7 +20,7 @@ cursor: pointer;
     outline: none;
     box-shadow: 0 0 0 4px #cbd6ee;
 }
-transition: background-color .ls linear;
+transition: background-color ls linear;
  ${({ size }) => {
         switch (size) {
             case 's':
