@@ -141,7 +141,7 @@ VideoListItemContainer.propTypes = {
 };
 
 VideoListItemContainer.defaultProps = {
-    className ="",
+    className: "",
 };
 
 export default (props) => (
