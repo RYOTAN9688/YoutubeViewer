@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Input from "~/components/atoms/Input";
+import Button from "~/components/atoms/Button"
 
 const Root = styled.div`
     width: 100%;
@@ -18,11 +19,11 @@ const SearchFormPresenter = ({
     className,
     onChange,
     defaultValue,
-    onsubmit,
+    onSubmit,
 }) => (
     <Root className={className}>
         <Input onChange={onChange} defaultValue={defaultValue} />
-        <Button onClick={onsubmit} size="l"> 検索</Button>
+        <Button onClick={onSubmit} size="l"> 検索</Button>
     </Root>
 );
 
@@ -30,7 +31,7 @@ SearchFormPresenter.propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     defaultValue: PropTypes.string,
-    onsubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
 };
 
 SearchFormPresenter.defaultProps = {
@@ -45,7 +46,7 @@ SearchFormPresenter.defaultProps = {
 const SearchFormContainer = ({
     className,
     defaultValue,
-    onsubmit,
+    onSubmit,
     presenter,
 }) => {
     //入力された値をstateで管理する
@@ -56,14 +57,14 @@ const SearchFormContainer = ({
         //入力値が変更されたらstateのkeywordが更新される
         onChange: setKeyword,
         //検索ボタンが押された時のキーワードを引数に渡して、onsubmitを呼ぶ
-        onsubmit: () => onsubmit(keyword),
+        onSubmit: () => onSubmit(keyword),
     });
 };
 
 SearchFormContainer.proptypes = {
     className: PropTypes.string,
     defaultValue: PropTypes.string,
-    onsubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     presenter: PropTypes.func.isRequired,
 };
 
