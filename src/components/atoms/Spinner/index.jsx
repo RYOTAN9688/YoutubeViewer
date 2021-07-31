@@ -3,10 +3,10 @@ import styled, { keyframes } from "styled-components";
 //アニメーションを定義
 const loopSpinKeyFrame = keyframes`
     0%{
-        transform: rotate(0deg)
+        transform: rotate(0deg);
     }
     100%{
-        transform: rotate(360deg)
+        transform: rotate(360deg);
     }
 `;
 
@@ -24,6 +24,5 @@ export default styled.span`
     border-radius: 50%;
     border: 8px solid #ccd5dc;
     border-right-color: transparent;
-    animation: ${loopSpinKeyFrame} 1s  linear infinite;
-
-`
+    animation: ${loopSpinKeyFrame} 1s linear infinite;
+`;

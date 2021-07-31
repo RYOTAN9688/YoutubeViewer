@@ -4,7 +4,7 @@ import Button, { sizes } from ".";
 
 export default { title: "atoms/Button" };
 
-const props = actions("onclick");
+const props = actions("onClick");
 
 export const size = () => sizes.map((s) => (
     <div key={s} style={{ margin: "20px" }}>

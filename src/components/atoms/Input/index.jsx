@@ -33,7 +33,7 @@ export const InputPresenter = ({
     />
 );
 
-InputPresenter.PropTypes = {
+InputPresenter.propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,//関数であること
     defaultValue: PropTypes.string,
@@ -82,7 +82,7 @@ export const InputContainer = ({
 InputContainer.propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
-    defaultStatus: PropTypes.string,
+    defaultValue: PropTypes.string,
     placeholder: PropTypes.string,
     presenter: PropTypes.func.isRequired,
 };
@@ -90,7 +90,7 @@ InputContainer.propTypes = {
 InputContainer.defaultProps = {
     className: "",
     onChange: null,
-    defaultStatus: "",
+    defaultValue: "",
     placeholder: "",
 };
 
@@ -99,9 +99,9 @@ InputContainer.defaultProps = {
 //定義として、propsを受けとり、inputContainerを使う関数がinputコンポーネントとなる
 //見た目を制御するコンポーネントとして、presenterを受けとり、presenterが指定されない場合は
 //inputPresenterをpresenterに設定する
-export default ((props) => (
+export default (props) => (
     <InputContainer
         presenter={InputPresenter}
         {...props}
     />
-));
+);

@@ -49,14 +49,14 @@ const Button = ({
     type,
     size,
     fullWidth,
-    onclick,
+    onClick,
 }) => (
     <Root
         className={className}
         type={type}
         size={size}
         fullWidth={fullWidth}
-        onclick={onclick}
+        onClick={onClick}
     >
         {children}
     </Root>
@@ -68,7 +68,7 @@ Button.propTypes = {
     type: PropTypes.string,
     size: PropTypes.oneOf(sizes),
     fullWidth: PropTypes.bool,
-    onclick: PropTypes.func,
+    onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -76,7 +76,7 @@ Button.defaultProps = {
     type: "button",
     size: "m",
     fullWidth: false,
-    onclick: null,
+    onClick: null,
 }
 
 export default Button;
