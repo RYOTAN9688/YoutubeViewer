@@ -1,6 +1,6 @@
 import React from "react";
 import VideoList from ".";
-import videos from "./sampleData.json";
+import videos from "../VideoList/sampleData.json";
 
 export default { title: "organisms/VideosList" };
 

@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import VideoListTemplate from "~/components/templates/VideoListTemplate";
 import Header from "~/components/organisms/Header";
-import SearchForm from "~components/organisms/SearchForm";
+import SearchForm from "~/components/organisms/SearchForm";
 import VideoList from "~/components/organisms/VideoList";
 
+
+//見た目を実装するコンポーネント
 export const TopPagePresenter = ({
     search,//検索
     searchNext,//検索結果の続きを取得
@@ -16,7 +18,7 @@ export const TopPagePresenter = ({
     <VideoListTemplate
         headerContents={<Header />}
         searchFormContents={(
-            <SearchForm onsubmit={search} defaultValue={defaultKeyword} />
+            <SearchForm onSubmit={search} defaultValue={defaultKeyword} />
         )}
         videosListContents={<VideoList videos={videos} loading={loading} />}
         onScrollEnd={searchNext}//一番下までスクロール
