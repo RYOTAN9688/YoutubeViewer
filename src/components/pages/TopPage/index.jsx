@@ -1,32 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import VideoListTemplate from "~/components/templates/VideoListTemplate";
+import Header from "~/components/organisms/Header";
+import SearchForm from "~components/organisms/SearchForm";
+import VideoList from "~/components/organisms/VideoList";
 
-const Root = styled.div`
-    background:#e5e5e5;
-    width:100%;
-    height:100%;
-    padding:10px;
-`;
+export const TopPagePresenter = ({
+    search,//検索
+    searchNext,//検索結果の続きを取得
+    defaultKeyword,
+    videos,
+    loading,
+}) => (
+    //ヘッダー、検索フォーム、動画リストを表示
+    <VideoListTemplate
+        headerContents={<Header />}
+        searchFormContents={(
+            <SearchForm onsubmit={search} defaultValue={defaultKeyword} />
+        )}
+        videosListContents={<VideoList videos={videos} loading={loading} />}
+        onScrollEnd={searchNext}//一番下までスクロール
+    />
+);
 
-const Title = styled.div`
-    font-size:30px;
-    font-weight:bold;
-    color:#ff3300;
-`;
+TopPagePresenter.propTypes = {
+    search: PropTypes.func.isRequired,
+    searchNext: PropTypes.func.isRequired,
+    defaultKeyword: PropTypes.string,
+    videos: VideoList.propTypes.videos,
+    loading: PropTypes.bool,
+};
 
+TopPagePresenter.defaultProps = {
+    videos: null,
+    loading: false,
+    defaultKeyword: "",
+};
 
-
-
-const TopPage = () => {
-    return (
-        <>
-            <Root>
-                <Title>This is Top page!</Title>
-                <Link to="/play/hoge">Player Page</Link>
-            </Root>
-        </>
-    );
-}
-
-export default TopPage;
+export default TopPagePresenter;
