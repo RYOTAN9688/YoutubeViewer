@@ -15,6 +15,6 @@ export default { title: "atoms/YouTubeInlineFrame" };
 export const inlineFrame = () => (
     <Wrapper>
         <YouTubeInlineFrame
-            videoId="39m7aKAT170" />
+            videoId="xblZ-IlGCzE" />
     </Wrapper>
 );
