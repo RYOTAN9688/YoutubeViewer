@@ -5,7 +5,7 @@ import VideoListTemplate from "~/components/templates/VideoListTemplate";
 import Header from "~/components/organisms/Header";
 import SearchForm from "~/components/organisms/SearchForm";
 import VideoList from "~/components/organisms/VideoList";
-import { param } from "../../../../api";
+
 
 
 
@@ -71,12 +71,13 @@ const TopPageContainer = ({
 
         const {
             data: {
-                item,
+                items,
                 nextPageToken: newNextPageToken,
             },
             //api.searchはコンテナーコンポーネントのdefaultPropsとして設定している関数が入る
             //パラメータにpageTokenを渡しているため、pagetokenがあれば続きからの取得となる
         } = await api.search(keyword, { pageToken });
+        console.log(items);
         //このコンポーネントがすでにアンマウントされた場合、以降何もしないようにする。
         //アンマウントされたコンポーネントのstate操作をするとメモリリークなどの不具合が起こる可能性があるため。
         if (cleanedUp.current) {
@@ -89,10 +90,10 @@ const TopPageContainer = ({
             //続きのロードがあれば既存のビデオ一覧に取得したリストを追加したものを設定。
             //検索結果の続きを取得したとき、すでに取得したものと重複する可能性を考慮し、重複を
             //取り除く処理を入れている
-            const itemWithoutDuplicated = item.filter(
+            const itemsWithoutDuplicated = items.filter(
                 ({ id: itemId }) => !videos.find(({ id }) => id === itemId),
             );
-            nextVideos = videos.concat(itemWithoutDuplicated);
+            nextVideos = videos.concat(itemsWithoutDuplicated);
 
         } else {
             nextVideos = items;
@@ -152,4 +153,4 @@ export default (props) => (
         presenter={TopPagePresenter}
         {...props}
     />
-)
+);

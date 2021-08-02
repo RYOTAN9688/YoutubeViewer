@@ -1,9 +1,9 @@
 const express = require("express");
 const { google } = require("googleapis");
 
-
 //取得したAPIキーを設定
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+console.log(YOUTUBE_API_KEY);
 
 const youtube = google.youtube({
     //バージョン
@@ -19,7 +19,7 @@ router.get("/videos/search/:keyword", (req, res, next) => {
     const { pageToken } = req.query;//問い合わせや要求などを一定の文字で表したもの
     (async () => {
         //検索結果を動画IDで取得
-        const { data: { item: idItems, nextPageToken } } = await youtube.search.list({
+        const { data: { items: idItems, nextPageToken } } = await youtube.search.list({
             part: "id",
             q: keyword,//検索クエリ
             type: "video",
