@@ -1,5 +1,6 @@
 const express = require("express");
 const { google } = require("googleapis");
+require("dotenv").config();
 
 //取得したAPIキーを設定
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
