@@ -39,7 +39,7 @@ PaperButton.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node.isRequired,
     type: PropTypes.string,
-    onClick: PropTypes.funcs,
+    onClick: PropTypes.func,
 };
 
 PaperButton.defaultProps = {

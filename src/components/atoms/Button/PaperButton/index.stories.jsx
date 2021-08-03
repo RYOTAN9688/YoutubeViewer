@@ -7,5 +7,6 @@ export default { title: "atoms/PaperButton" };
 const props = actions("onClick");
 
 export const paperButton = () => (
-    <PaperButton{...props}>もっと見る</PaperButton>
+
+    <PaperButton {...props}>もっと見る</PaperButton>
 );

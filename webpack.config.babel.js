@@ -1,4 +1,5 @@
 import path from 'path';
+import { IgnorePlugin } from 'webpack';
 
 export default (env, args) => {
     const isProduction = args.mode === 'production';
@@ -12,7 +13,7 @@ export default (env, args) => {
 
     return {
 
-        // ここから変更
+
         devtool,
         entry: './src/entries/app.jsx',
         output: {
@@ -27,7 +28,8 @@ export default (env, args) => {
             },
             extensions: ['.js', '.jsx'],
         },
-        // ここまで変更
-
+        plugins: [
+            new IgnorePlugin(/^\.\/locale$/, /moment$/),
+        ],
     };
 };
