@@ -7,8 +7,9 @@ export default (onScrollEnd) => {
     //続きを読み込めるようにするための設計。
     //親コンポーネントが続きをロードする関数をonScrollに渡して使用。
     useEffect(() => {
+        let cleanup;
         if (!onScrollEnd) {
-            return;
+            return cleanup;
         }
         //スクロール時のイベントハンドラ
         const scrollHandler = ({ target: { scrollingElement } }) => {
@@ -24,7 +25,7 @@ export default (onScrollEnd) => {
         //イベントハンドラの設定
         window.document.addEventListener("scroll", scrollHandler);
         //useEffectの第一引数の関数では、関数を返している
-        return () => {
+        cleanup = () => {
             //コンポーネントのアンマウント時に設定したイベントハンドラを削除する
             //useEffctのクリーンアップのためのオプションの仕組み。
             //返した関数は、コンポーネントをアマウントしたとき、また第二引数が変更されたときに実行
@@ -32,6 +33,7 @@ export default (onScrollEnd) => {
             //不要になったときに元に戻すことができる
             window.document.removeEventListener("scroll", scrollHandler);
         };
+        return cleanup;
         //第二引数にonScrollEndを指定。onScrollEndの値が変わるとuseEffectの第一引数の処理が実行される
         //onScrollEndが変更されると、変更後のonScrollEndを使って再度イベントハンドラの設定処理が実行
     }, [onScrollEnd]);
