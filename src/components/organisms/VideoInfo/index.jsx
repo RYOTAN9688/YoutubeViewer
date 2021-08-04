@@ -21,7 +21,7 @@ const Description = styled(Typography)`
     height: fit-content;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: --webkit-box;
+    display: -webkit-box;
     ${({ showAllDescription }) => !showAllDescription && "-webkit-line-clamp: 3"};
     -webkit-box-orient: vertical;
     white-space: pre-wrap;
@@ -47,14 +47,13 @@ export const VideoInfoPresenter = ({
                 {description}
             </Description>
             <PaperButton
-                //もっと見るボタンをクリックしたとき、表示を変更
                 onClick={() => setShowAllDescription(!showAllDescription)}
             >
-                {showAllDescription ? "一部を表示" : "もっと見る"}
+                {showAllDescription ? '一部を表示' : 'もっと見る'}
             </PaperButton>
-        </Root >
+        </Root>
     );
-};
+}
 
 VideoInfoPresenter.propTypes = {
     title: Proptypes.string.isRequired,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { VideoInfoPresenter as VideoInfo } from '.';
 
-export default { title: 'organisms/VideoInfo' };
+export default { title: "organisms/videoInfo" };
 
 const props = {
     title: '猫と学ぶ宇宙のこと100',
@@ -11,5 +11,5 @@ const props = {
 };
 
 export const videoInfo = () => (
-    < VideoInfo {...props} />
+    <VideoInfo {...props} />
 );
