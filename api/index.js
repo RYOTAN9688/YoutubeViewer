@@ -62,7 +62,7 @@ router.get("/videos/:videoId/related", (req, res, next) => {
             relatedToVideoId,
             type: "video",
             maxResults: 20,
-            pageTokens,
+            pageToken,
         });
         //動画の情報を取得
         const ids = idItems.map(({ id: { videoId } }) => videoId);
