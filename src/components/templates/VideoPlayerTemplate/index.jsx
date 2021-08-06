@@ -53,7 +53,7 @@ const SideContents = styled.div`
     }
 `;
 
-const VideoListTemplate = ({
+const VideosListTemplate = ({
     headerContents,
     playerContents,
     videoInfoContents,
@@ -83,7 +83,7 @@ const VideoListTemplate = ({
     );
 };
 
-VideoListTemplate.proptypes = {
+VideosListTemplate.proptypes = {
     headerContents: PropTypes.node,
     playerContents: PropTypes.node.isRequired,
     videoInfoContents: PropTypes.node,
@@ -91,11 +91,11 @@ VideoListTemplate.proptypes = {
     onScrollEnd: PropTypes.func,
 };
 
-VideoListTemplate.defaultProps = {
+VideosListTemplate.defaultProps = {
     headerContents: null,
     videoInfoContents: null,
     relatedVideosListContents: null,
     onScrollEnd: null,
 };
 
-export default VideoListTemplate;
+export default VideosListTemplate;

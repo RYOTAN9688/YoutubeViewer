@@ -111,7 +111,7 @@ const VideoListItemContainer = ({
     return presenter({
         className,
         //クリックされたときにページを遷移（ページを移り変わる）する
-        onclick: () => {
+        onClick: () => {
             history.push(`/play/${id}`);
         },
         title,

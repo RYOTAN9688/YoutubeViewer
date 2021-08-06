@@ -4,9 +4,9 @@ import axios from "axios";
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import VideoListTemplate from '../../templates/VideoPlayerTemplate';
-import Header from "../../organisms/Header"
-import VideoInfo from "../../organisms/VideoInfo";
+import VideosListTemplate from '../../templates/VideoPlayerTemplate';
+import Header from "../../organisms/Header";
+// import VideoInfo from "../../organisms/VideoInfo";
 import VideoList from "../../organisms/VideoList";
 import YouTubeInlineFrame from "../../atoms/YouTubeInlineFrame";
 import Typography from '../../atoms/Typography';
@@ -25,11 +25,11 @@ export const PlayerPagePresenter = ({
     loadingRelatedVideos,
     onScrollEnd,
 }) => (
-    <VideoListTemplate
+    <VideosListTemplate
         headerContents={<Header />}
         playerContents={<YouTubeInlineFrame videoId={videoId} />}
-        videoInfoContents={videoData && <VideoInfo item={videoData} />}
-        relatedVideosListContent={(
+        // videoInfoContents={videoData && <VideoInfo item={videoData} />}
+        relatedVideosListContents={(
             <RecommendVideosWrapper>
                 <Typography variant="subtitle" bold>関連動画</Typography>
                 <VideoList videos={relatedVideos} loading={loadingRelatedVideos} />
@@ -63,7 +63,7 @@ export const PlayerPageContainer = ({
     const { videoId } = useParams();
     const [videoData, setVideoData] = useState(null);//videoデータ 
     //関連動画を覚えておく設定。初期値は空配列
-    const [relatedVideos, setRelatVideos] = useState([]);//関連動画
+    const [relatedVideos, setRelatedVideos] = useState([]);//関連動画
     //関連動画を取得中かどうか覚えておく設定。
     //関連動画取得中であれば、新たな関連動画取得を実行しない制御をする。
     //またvideoListコンポーネントをローディング状態で表示をする制御をする。
@@ -100,7 +100,7 @@ export const PlayerPageContainer = ({
         //関連動画読み込み中のフラグをfalseにする
         setLoadingRelatedVideos(false);
         //重複を削除して既に取得済みのものと結合してセット
-        setRelatVideos(relatedVideos.concat(videos.filter(
+        setRelatedVideos(relatedVideos.concat(videos.filter(
             ({ id: itemId }) => !relatedVideos.find(({ id }) => id === itemId),
         )));
         //続きを取得するためのnextPageTokenを覚えておく
@@ -113,7 +113,7 @@ export const PlayerPageContainer = ({
         getRelateVideos();
     }, [videoId]);
     return presenter({
-        videoID,
+        videoId,
         videoData,
         relatedVideos,
         loadingRelatedVideos,
@@ -133,7 +133,7 @@ PlayerPageContainer.propTypes = {
 PlayerPageContainer.defaultProps = {
     api: {
         getVideoData: (videoId) => axios.get(`/api/videos/${videoId}`),
-        getRelatedVideos: (videoId, pageToken = "") => axios.get(`/api/videos/${videoId}/related?pageToken=${pageToken}`),
+        getRelatedVideos: (videoId, pageToken = '') => axios.get(`/api/videos/${videoId}/related?pageToken=${pageToken}`),
     },
 };
 

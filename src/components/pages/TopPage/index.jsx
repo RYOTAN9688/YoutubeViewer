@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import VideoListTemplate from "~/components/templates/VideoListTemplate";
+import VideosListTemplate from "~/components/templates/VideosListTemplate";
 import Header from "~/components/organisms/Header";
 import SearchForm from "~/components/organisms/SearchForm";
 import VideoList from "~/components/organisms/VideoList";
@@ -18,7 +18,7 @@ export const TopPagePresenter = ({
     loading,
 }) => (
     //ヘッダー、検索フォーム、動画リストを表示
-    <VideoListTemplate
+    <VideosListTemplate
         headerContents={<Header />}
         searchFormContents={(
             <SearchForm onSubmit={search} defaultValue={defaultKeyword} />

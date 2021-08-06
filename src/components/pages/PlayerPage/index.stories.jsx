@@ -1,7 +1,28 @@
 import React from "react";
-import PlayerPage from ".";
+import { actions } from "@storybook/addon-actions";
 
-export default { title: "pages/PlayerPage" };
+import { PlayerPagePresenter as PlayerPage } from '.';
+import sampleData from "../PlayerPage/sampleData.json";
 
-export const playerPage = () => <PlayerPage />
-playerPage.story = { name: "再生画面" };
+
+export default { title: "page/PlayerPage" };
+
+const props = {
+    ...sampleData,
+    loadingRelatedVideos: false,
+    ...actions("onScrollEnd"),
+};
+
+export const playerPage = () => <PlayerPage {...props} />;
+playerPage.story = { name: "デフォルト" };
+
+export const loading = () => (
+    <PlayerPage
+        {...props}
+        relatedVideos={[]}
+        videoData={null}
+        loadingRelatedVideos
+    />
+);
+loading.story = { name: "ロード中" }
+
