@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 import moment from "moment";
 import styled from "styled-components";
 import Typography from "../../atoms/Typography";
 import PaperButton from "../../atoms/Button/PaperButton";
 
 const Root = styled.div`
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 `;
 
 const Title = styled(Typography)`
-    margin: 4px 0 10px;
+  margin: 4px 0 10px;
 `;
 
 
 const Description = styled(Typography)`
-    margin-top: 10px;
-    height: fit-content;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    ${({ showAllDescription }) => !showAllDescription && "-webkit-line-clamp: 3"};
-    -webkit-box-orient: vertical;
-    white-space: pre-wrap;
+  margin-top: 10px;
+  height: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  ${({ showAllDescription }) => !showAllDescription && '-webkit-line-clamp: 3'};
+  -webkit-box-orient: vertical;
+  white-space: pre-wrap;
 `;
 
 //もっと見るボタンを押したときの見た目の制御
@@ -34,6 +34,7 @@ export const VideoInfoPresenter = ({
     publishedAt,
     viewCount,
 }) => {
+    //隠れた状態からスタート
     const [showAllDescription, setShowAllDescription] = useState(false);
     return (
         <Root>
@@ -54,12 +55,11 @@ export const VideoInfoPresenter = ({
         </Root>
     );
 }
-
 VideoInfoPresenter.propTypes = {
-    title: Proptypes.string.isRequired,
-    viewCount: Proptypes.string.isRequired,
-    publishedAt: Proptypes.string.isRequired,
-    description: Proptypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    viewCount: PropTypes.string.isRequired,
+    publishedAt: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
 };
 
 const VideoInfoContainer = ({
@@ -83,9 +83,9 @@ const VideoInfoContainer = ({
 
 VideoInfoContainer.propTypes = {
     item: PropTypes.shape({
-        snippet: Proptypes.shape({
-            publishedAt: propTypes.string,
-            title: Proptypes.string,
+        snippet: PropTypes.shape({
+            publishedAt: PropTypes.string,
+            title: PropTypes.string,
             description: PropTypes.string,
         }),
         statistics: PropTypes.shape({
@@ -101,4 +101,5 @@ export default (props) => (
         {...props}
     />
 );
+
 

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import VideosListTemplate from '../../templates/VideoPlayerTemplate';
 import Header from "../../organisms/Header";
-// import VideoInfo from "../../organisms/VideoInfo";
+import VideoInfo from '../../organisms/VideoInfo';
 import VideoList from "../../organisms/VideoList";
 import YouTubeInlineFrame from "../../atoms/YouTubeInlineFrame";
 import Typography from '../../atoms/Typography';
@@ -28,7 +28,7 @@ export const PlayerPagePresenter = ({
     <VideosListTemplate
         headerContents={<Header />}
         playerContents={<YouTubeInlineFrame videoId={videoId} />}
-        // videoInfoContents={videoData && <VideoInfo item={videoData} />}
+        videoInfoContents={videoData && <VideoInfo item={videoData} />}
         relatedVideosListContents={(
             <RecommendVideosWrapper>
                 <Typography variant="subtitle" bold>関連動画</Typography>
@@ -61,7 +61,8 @@ export const PlayerPageContainer = ({
     //urlのパスの中で動的に変化する部分の値を取得する。videoIDの値を取得する
     //動画IDをURLパスから取得する
     const { videoId } = useParams();
-    const [videoData, setVideoData] = useState(null);//videoデータ 
+    const [videoData, setVideoData] = useState(null);//videoデータ
+    console.log(videoData);
     //関連動画を覚えておく設定。初期値は空配列
     const [relatedVideos, setRelatedVideos] = useState([]);//関連動画
     //関連動画を取得中かどうか覚えておく設定。
@@ -82,7 +83,7 @@ export const PlayerPageContainer = ({
     };
 
     //関連動画の取得
-    const getRelateVideos = async () => {
+    const getRelatedVideos = async () => {
         if (loadingRelatedVideos) {
             //関連動画読み込み中であれば何もしない
             return;
@@ -96,7 +97,7 @@ export const PlayerPageContainer = ({
                 //前回関連動画を読み込んだ時に、nextPageTokenがかえってきていればそれを設定
                 nextPageToken: newNextPageToken,
             },
-        } = await api.getRelateVideos(videoId, nextPageToken);
+        } = await api.getRelatedVideos(videoId, nextPageToken);
         //関連動画読み込み中のフラグをfalseにする
         setLoadingRelatedVideos(false);
         //重複を削除して既に取得済みのものと結合してセット
@@ -118,15 +119,15 @@ export const PlayerPageContainer = ({
         relatedVideos,
         loadingRelatedVideos,
         //一番下までスクロールされたときに関連動画の続きをロードしてほしいので、getRelatevideos関数を設定
-        onScrollEnd: getRelateVideos,
+        onScrollEnd: getRelatedVideos,
     });
 };
 
 
 PlayerPageContainer.propTypes = {
     api: PropTypes.shape({
-        getRelateVideos: PropTypes.func,
-        getVideoData: PropTypes.func
+        getRelatedVideos: PropTypes.func,
+        getVideoData: PropTypes.func,
     }),
 };
 

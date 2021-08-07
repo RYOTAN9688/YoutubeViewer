@@ -1,5 +1,5 @@
 import path from 'path';
-import { IgnorePlugin } from 'webpack';
+import { IgnorePlugin } from 'webpack'; // 追記する
 
 export default (env, args) => {
     const isProduction = args.mode === 'production';
@@ -12,8 +12,6 @@ export default (env, args) => {
     ];
 
     return {
-
-
         devtool,
         entry: './src/entries/app.jsx',
         output: {
@@ -28,8 +26,12 @@ export default (env, args) => {
             },
             extensions: ['.js', '.jsx'],
         },
+        // 以下追記する
         plugins: [
+            // Ignore all locale files of moment.js
             new IgnorePlugin(/^\.\/locale$/, /moment$/),
         ],
+
+
     };
 };
