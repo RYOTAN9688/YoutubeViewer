@@ -5,7 +5,7 @@ const FAVORITE_IDS_FILE = "./favoriteIds.json";
 //お気に入りリストの読み込み
 module.exports.readFavoriteIds = () => new Promise((resolve, reject) => {
     //コールバックを受けとる非同期関数
-    fs.readFile(FAVORITE_IDS_FILE, "utf-8,", (err, data) => {
+    fs.readFile(FAVORITE_IDS_FILE, "utf-8", (err, data) => {
         //ファイルの読み込みが終わったら以下の処理が実行
         //errにはファイル読み込み時のエラーオブジェクト（エラーがなければ値なし）
         //dataにはファイル読み込み結果（文字列）
