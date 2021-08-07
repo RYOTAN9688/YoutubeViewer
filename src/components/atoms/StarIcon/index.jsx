@@ -17,9 +17,9 @@ const StyledIcon = styled(({ on, ...props }) => (<span {...props} />))`
     }
 `;
 
-const StarIcon = ({ on }) => {
-    <StyledIcon on={on} />
-};
+const StarIcon = ({ on }) => (
+    < StyledIcon on={on} />
+);
 
 StarIcon.propTypes = {
     on: PropTypes.bool,
