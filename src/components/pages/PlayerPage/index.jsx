@@ -83,7 +83,7 @@ export const PlayerPageContainer = ({
     };
 
     //関連動画の取得
-    const getRelatedVideos = async () => {
+    const getRelateVideos = async () => {
         if (loadingRelatedVideos) {
             //関連動画読み込み中であれば何もしない
             return;
@@ -119,7 +119,7 @@ export const PlayerPageContainer = ({
         relatedVideos,
         loadingRelatedVideos,
         //一番下までスクロールされたときに関連動画の続きをロードしてほしいので、getRelatevideos関数を設定
-        onScrollEnd: getRelatedVideos,
+        onScrollEnd: getRelateVideos,
     });
 };
 

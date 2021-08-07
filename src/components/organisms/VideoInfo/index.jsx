@@ -81,6 +81,7 @@ const VideoInfoContainer = ({
     description,//説明
 }));
 
+
 VideoInfoContainer.propTypes = {
     item: PropTypes.shape({
         snippet: PropTypes.shape({
