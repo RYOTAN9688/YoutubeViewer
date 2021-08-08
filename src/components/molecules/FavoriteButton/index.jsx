@@ -41,6 +41,7 @@ const FavoriteButtonContainer = ({
     presenter,
 }) => {
     const { state: { ids: favoriteIds }, dispatch } = useContext(FavoriteContext);
+    console.log(favoriteIds);
     if (!favoriteIds) {
         // お気に入りリストが未設定(取得前)であればお気に入りボタンは表示しない
         return null;

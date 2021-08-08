@@ -24,7 +24,7 @@ export default (state, action) => {
                 return state;
             }
             ids.push(id);
-            return { ...state.ids };
+            return { ...state, ids };
         }
         case "remove": {
             //お気に入りリストから削除

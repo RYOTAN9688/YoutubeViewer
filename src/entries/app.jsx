@@ -6,6 +6,7 @@ import GlobalStyle from '../style/GlobalStyle';
 import App from '~/routings/App';
 import { FavoriteProvider } from "../contexts/FavoriteContext";
 
+
 const rootEl = document.getElementById('root');
 
 ReactDOM.render(
