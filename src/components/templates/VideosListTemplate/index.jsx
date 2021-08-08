@@ -15,6 +15,11 @@ const HeaderWrapper = styled.div`
     border-bottom: 1px solid #ccc;
 `;
 
+const TitleWrapper = styled.div`
+    max-width: 720px;
+    margin: auto;
+`;
+
 const SearchFormWrapper = styled.div`
     max-width: 720px;
     margin: auto;
@@ -27,6 +32,7 @@ const VideosListWrapper = styled.div`
 
 const VideosListTemplate = ({
     headerContents,
+    titleContents,
     searchFormContents,
     videosListContents,
     onScrollEnd,
@@ -37,6 +43,9 @@ const VideosListTemplate = ({
             <HeaderWrapper>
                 {headerContents}
             </HeaderWrapper>
+            <titleContents>
+                {titleContents}
+            </titleContents>
             <SearchFormWrapper>
                 {searchFormContents}
             </SearchFormWrapper>
@@ -49,6 +58,7 @@ const VideosListTemplate = ({
 
 VideosListTemplate.propTypes = {
     headerContents: PropTypes.node,//renderできるものかチェック
+    titleContents: PropTypes.node,
     SearchFormContents: PropTypes.node,
     videosListContents: PropTypes.node.isRequired,//renderできるものかをチェック（必須）
     onScrollEnd: PropTypes.func,//関数であるかチェック
@@ -56,6 +66,7 @@ VideosListTemplate.propTypes = {
 
 VideosListTemplate.defaultProps = {
     headerContents: null,
+    titleContents: null,
     SearchFormContents: null,
     onScrollEnd: null,
 }
