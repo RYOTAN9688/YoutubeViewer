@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useHistory } from "react-router";
 import Image from "~/components/atoms/Image";
+
+import FavoriteButton from "../../../components/molecules/FavoriteButton"
 import Typography from "~/components/atoms/Typography";
 
 const Root = styled.div`
@@ -30,7 +32,7 @@ const InfoWrapper = styled.div`
     word-break: break-all;
 `;
 
-const Descfription = styled(Typography)`
+const Description = styled(Typography)`
     margin-top: 5px;
     height: fit-content;
     overflow: hidden;
@@ -39,10 +41,19 @@ const Descfription = styled(Typography)`
     display: -webkit-box;
     -webkit-line-clamp:3;
     -webkit-box-orient: vertical;
+    ${({ requireMarginForButton }) => requireMarginForButton && (
+        css`margin-bottom :16px`
+    )};
 `;
 
 const ViewCount = styled(Typography)`
     margin-top: 5px;
+`;
+
+const StyleFavoriteButton = styled(FavoriteButton)`
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
 `;
 
 
@@ -53,6 +64,8 @@ const VideoListItemPresenter = ({
     title,
     description,
     viewCount,
+    withFavoriteButton,//お気に入りボタンを表示するかどうか設定するもの
+    videoId,//お気に入りボタンに渡す動画Idを設定
 }) => (
     <Root className={className} onClick={onClick}>
         <Thumbnail >
@@ -60,11 +73,14 @@ const VideoListItemPresenter = ({
         </Thumbnail>
         <InfoWrapper>
             <Typography size="subtitle" bold display="inline-block">{title}</Typography>
-            <Descfription>{description}</Descfription>
+            <Description requireMarginForButton={withFavoriteButton}>{description}</Description>
             <ViewCount size="xs" color="gray">
                 {viewCount}
                 回視聴
             </ViewCount>
+            {withFavoriteButton && (
+                <StyleFavoriteButton videoId={videoId} />
+            )}
         </InfoWrapper>
     </Root>
 );
@@ -76,11 +92,15 @@ VideoListItemPresenter.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     viewCount: PropTypes.string.isRequired,
+    withFavoriteButton: PropTypes.bool,
+    videoId: PropTypes.string,
 };
 
 VideoListItemPresenter.defaultProps = {
     className: "",
     onClick: null,
+    withFavoriteButton: false,
+    videoId: "",
 };
 
 //動画データをvideoで受けとって、適切に変換してからプレゼンテーショナル・コンポーネントにデータを渡す
@@ -104,6 +124,7 @@ const VideoListItemContainer = ({
             viewCount,
         },
     },
+    withFavoriteButton,
     presenter,
 }) => {
     //ページ遷移させるため、useHistoryを使い、historyオブジェクトを取得
@@ -118,6 +139,8 @@ const VideoListItemContainer = ({
         ThumbnailUrl,
         description,
         viewCount,
+        withFavoriteButton,
+        videoId: id,
     });
 };
 
@@ -138,10 +161,12 @@ VideoListItemContainer.propTypes = {
             viewCount: PropTypes.string.isRequired,
         }).isRequired
     }).isRequired,
+    withFavoriteButton: PropTypes.bool,
 };
 
 VideoListItemContainer.defaultProps = {
     className: "",
+    withFavoriteButton: false,
 };
 
 export default (props) => (

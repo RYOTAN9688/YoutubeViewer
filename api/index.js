@@ -39,19 +39,19 @@ router.get("/videos/search/:keyword", (req, res, next) => {
 });
 
 //お気に入り動画の取得
-router.get("/videos/favorites", (req, res, next) => {
+router.get('/videos/favorites', (req, res, next) => {
     (async () => {
-        //お気に入り動画IDの取得
+        // お気に入り動画IDを取得
         const favoriteIds = await readFavoriteIds();
         if (!favoriteIds.length) {
-            //お気に入りが１つもなければから配列を返す
+            // お気に入りが1つもなければ空配列を返す
             res.json({ items: [] });
             return;
         }
-        //お気に入りのIDから動画を取得
+        // お気に入りのIDから動画の取得
         const { data: { items } } = await youtube.videos.list({
-            part: "statistics,snippet",
-            id: favoriteIds.join(","),
+            part: 'statistics,snippet',
+            id: favoriteIds.join(','),
         });
         res.json({ items });
     })().catch(next);

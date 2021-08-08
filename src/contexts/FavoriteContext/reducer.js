@@ -16,7 +16,7 @@ export default (state, action) => {
 
             //現在のstateからお気に入り動画IDの配列を格納しているidsを取得
             const { ids } = state;
-            const [id] = action;
+            const { id } = action;
             const index = ids.indexOf(id);
             //action.idに指定された動画IDが既に存在するか？
             if (index !== -1) {
@@ -30,7 +30,7 @@ export default (state, action) => {
             //お気に入りリストから削除
             //actionに渡された動画idを削除
             const { ids } = state;
-            const [id] = action;
+            const { id } = action;
             const index = ids.indexOf(id);
             if (index === -1) {
                 //存在しないidならstateを変更しない

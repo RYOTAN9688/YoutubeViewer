@@ -43,7 +43,7 @@ export const FavoriteProvider = ({ api, children }) => {
 
 FavoriteProvider.propTypes = {
     children: PropTypes.node.isRequired,
-    apo: PropTypes.shape({
+    api: PropTypes.shape({
         get: PropTypes.func,
     }),
 };
@@ -53,4 +53,4 @@ FavoriteProvider.defaultProps = {
     },
 };
 
-export default FavoriteProvider;
+export default FavoriteContext;

@@ -23,7 +23,7 @@ export const TopPagePresenter = ({
         searchFormContents={(
             <SearchForm onSubmit={search} defaultValue={defaultKeyword} />
         )}
-        videosListContents={<VideoList videos={videos} loading={loading} />}
+        videosListContents={<VideoList videos={videos} loading={loading} withFavoriteButton />}
         onScrollEnd={searchNext}//一番下までスクロール
     />
 );

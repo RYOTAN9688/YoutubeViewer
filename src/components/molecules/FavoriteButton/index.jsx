@@ -42,7 +42,7 @@ const FavoriteButtonContainer = ({
 }) => {
     const { state: { ids: favoriteIds }, dispatch } = useContext(FavoriteContext);
     if (!favoriteIds) {
-        //お気に入りリストが未設定（取得前）であればお気に入りボタンは表示しない
+        // お気に入りリストが未設定(取得前)であればお気に入りボタンは表示しない
         return null;
     }
     const isFavorite = favoriteIds.indexOf(videoId) !== -1;
@@ -54,7 +54,7 @@ const FavoriteButtonContainer = ({
         //サーバーにお気に入りの追加または削除するリクエストを送る
         api[isFavorite ? "delete" : "post"](videoId);
         //サーバーからのレスポンスを待たずにお気に入り状態を変更する
-        dispatch({ type: isFavorite ? "remove" : "add ", id: videoId });
+        dispatch({ type: isFavorite ? "remove" : "add", id: videoId });
     };
     return presenter({
         className,
@@ -76,7 +76,7 @@ FavoriteButtonContainer.propTypes = {
 FavoriteButtonContainer.defaultProps = {
     className: "",
     api: {
-        post: (videoId) => axios.post(`/api/favorires/${videoId}`),
+        post: (videoId) => axios.post(`/api/favorites/${videoId}`),
         delete: (videoId) => axios.delete(`/api/favorites/${videoId}`),
     },
 };
