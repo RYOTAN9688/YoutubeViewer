@@ -44,9 +44,11 @@ const FavoritePageContainer = ({
     presenter,
 }) => {
     const { state: { ids, initialized } } = useContext(FavoriteContext);
+    //お気に入り動画はstateで管理する
     const [videos, setVideos] = useState();
     const [loading, setLoading] = useState(false);
 
+    //実際に動画取得している場所
     const getVideos = async () => {
         //お気に入り動画の取得
         setLoading(true);
