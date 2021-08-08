@@ -21,7 +21,7 @@ const Loading = styled.div`
 
 //videoを受けとって、それをvideoItemListを使って表示
 //propsにloadingを受けとって、データ取得中の表示をしたり、検索結果が１件もない時メッセージを表示する
-const VideoList = ({
+const VideosList = ({
     videos,
     loading,
     withFavoriteButton,
@@ -40,17 +40,17 @@ const VideoList = ({
     </>
 );
 
-VideoList.propTypes = {
+VideosList.propTypes = {
     videos: PropTypes.arrayOf(PropTypes.shape({})),//配列の中の値の型までチェックし、型がバラバラの場合
     loading: PropTypes.bool,
     withFavoriteButton: PropTypes.bool,
 };
 
-VideoList.defaultProps = {
+VideosList.defaultProps = {
     videos: [],
     loading: false,
     withFavoriteButton: false,
 };
 
-export default VideoList;
+export default VideosList;
 

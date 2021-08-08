@@ -7,9 +7,7 @@ import VideoListTemplate from "../../../components/templates/VideosListTemplate"
 import Header from "../../organisms/Header";
 import VideoList from "../../organisms/VideoList";
 import Typography from "../../atoms/Typography";
-import { astNodesAreEquivalent } from "ast-types";
-import { async } from "regenerator-runtime";
-import { set } from "store2";
+
 
 //タイトルだけ
 const SubTitle = styled(Typography).attrs({ size: "title" })`
@@ -30,7 +28,7 @@ export const FavoritePagePresenter = ({
 );
 
 FavoritePagePresenter.propTypes = {
-    videos: VideoList.PropTypes.videos,
+    videos: VideoList.propTypes.videos,
     loading: PropTypes.bool,
 };
 
