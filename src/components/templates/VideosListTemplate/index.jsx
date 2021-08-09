@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import useOnScrollEnd from "../../../utils/useOnScrollEnd";
-
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import useOnScrollEnd from '../../../utils/useOnScrollEnd';
 
 const Root = styled.div`
     width: 100%;
@@ -31,44 +30,44 @@ const VideosListWrapper = styled.div`
 `;
 
 const VideosListTemplate = ({
-    headerContents,
-    titleContents,
-    searchFormContents,
-    videosListContents,
-    onScrollEnd,
+  headerContents,
+  titleContents,
+  searchFormContents,
+  videosListContents,
+  onScrollEnd,
 }) => {
-    useOnScrollEnd(onScrollEnd);
-    return (
-        <Root>
-            <HeaderWrapper>
-                {headerContents}
-            </HeaderWrapper>
-            <titleContents>
-                {titleContents}
-            </titleContents>
-            <SearchFormWrapper>
-                {searchFormContents}
-            </SearchFormWrapper>
-            <VideosListWrapper>
-                {videosListContents}
-            </VideosListWrapper>
-        </Root>
-    );
+  useOnScrollEnd(onScrollEnd);
+  return (
+    <Root>
+      <HeaderWrapper>
+        {headerContents}
+      </HeaderWrapper>
+      <TitleWrapper >
+        {titleContents}
+      </TitleWrapper>
+      <SearchFormWrapper>
+        {searchFormContents}
+      </SearchFormWrapper>
+      <VideosListWrapper>
+        {videosListContents}
+      </VideosListWrapper>
+    </Root>
+  );
 };
 
 VideosListTemplate.propTypes = {
-    headerContents: PropTypes.node,//renderできるものかチェック
-    titleContents: PropTypes.node,
-    SearchFormContents: PropTypes.node,
-    videosListContents: PropTypes.node.isRequired,//renderできるものかをチェック（必須）
-    onScrollEnd: PropTypes.func,//関数であるかチェック
+  headerContents: PropTypes.node, // renderできるものかチェック
+  titleContents: PropTypes.node,
+  SearchFormContents: PropTypes.node,
+  videosListContents: PropTypes.node.isRequired, // renderできるものかをチェック（必須）
+  onScrollEnd: PropTypes.func, // 関数であるかチェック
 };
 
 VideosListTemplate.defaultProps = {
-    headerContents: null,
-    titleContents: null,
-    SearchFormContents: null,
-    onScrollEnd: null,
-}
+  headerContents: null,
+  titleContents: null,
+  SearchFormContents: null,
+  onScrollEnd: null,
+};
 
 export default VideosListTemplate;

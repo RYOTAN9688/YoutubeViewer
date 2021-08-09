@@ -1,15 +1,15 @@
-import React from "react";
-import { actions } from "@storybook/addon-actions";
-import SearchForm from ".";
+import React from 'react';
+import { actions } from '@storybook/addon-actions';
+import SearchForm from '.';
 
-export default { title: "organisms/SearchForm" };
+export default { title: 'organisms/SearchForm' };
 
 const props = actions('onSubmit');
 
 export const searchForm = () => (
-    <SearchForm {...props} />
+  <SearchForm {...props} />
 );
 
 export const withDefaultValue = () => (
-    <SearchForm {...props} defaultValue="ねこ" />
-)
+  <SearchForm {...props} defaultValue="ねこ" />
+);

@@ -1,11 +1,11 @@
-import React from "react";
-import VideoListItem from ".";
-import video from "./sampleData.json";
+import React from 'react';
+import VideoListItem from '.';
+import video from './sampleData.json';
 
-export default { title: "organisms/VideoListItem" };
+export default { title: 'organisms/VideoListItem' };
 
 export const videoListItem = () => <VideoListItem video={video} />;
 
 export const videoListItemWithfavoriteButton = () => (
-    <VideoListItem video={video} withFavoriteButton />
+  <VideoListItem video={video} withFavoriteButton />
 );

@@ -1,5 +1,5 @@
-//スタイルをグローバルに適用
-import { createGlobalStyle } from "styled-components";
+// スタイルをグローバルに適用
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   html,body,#root {

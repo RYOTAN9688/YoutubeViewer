@@ -1,6 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
-//アニメーションを定義
+// アニメーションを定義
 const loopSpinKeyFrame = keyframes`
     0%{
         transform: rotate(0deg);
@@ -10,7 +10,7 @@ const loopSpinKeyFrame = keyframes`
     }
 `;
 
-const size = "24px";
+const size = '24px';
 
 export default styled.span`
     position: absolute;

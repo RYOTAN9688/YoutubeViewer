@@ -1,8 +1,8 @@
-import React from "react";
-import Header from ".";
+import React from 'react';
+import Header from '.';
 
-export default { title: "organisms/Header" };
+export default { title: 'organisms/Header' };
 
 export const header = () => (
-    <Header>YouTube Viewer</Header>
-)
+  <Header>YouTube Viewer</Header>
+);

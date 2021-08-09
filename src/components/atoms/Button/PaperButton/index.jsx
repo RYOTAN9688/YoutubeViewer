@@ -1,8 +1,8 @@
-//フチのない見た目の補助的な動作を表すボタン
+// フチのない見た目の補助的な動作を表すボタン
 
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const Root = styled.button`
     appearance: none;
@@ -21,31 +21,31 @@ const Root = styled.button`
 `;
 
 const PaperButton = ({
-    className,
-    children,
-    type,
-    onClick
+  className,
+  children,
+  type,
+  onClick,
 }) => (
-    <Root
-        className={className}
-        type={type}
-        onClick={onClick}
-    >
-        {children}
-    </Root>
+  <Root
+    className={className}
+    type={type}
+    onClick={onClick}
+  >
+    {children}
+  </Root>
 );
 
 PaperButton.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node.isRequired,
-    type: PropTypes.string,
-    onClick: PropTypes.func,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  type: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 PaperButton.defaultProps = {
-    className: "",
-    type: "button",
-    onClick: null,
+  className: '',
+  type: 'button',
+  onClick: null,
 };
 
 export default PaperButton;

@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const COLOR_ON = "#ffff00";
-const COLOR_OFF = "#ffffff";
+const COLOR_ON = '#ffff00';
+const COLOR_OFF = '#ffffff';
 
-//styledcomponentを使ってonがtrueの状態とfalseの状態で表示する色を変えるコンポーネント
+// styledcomponentを使ってonがtrueの状態とfalseの状態で表示する色を変えるコンポーネント
 const StyledIcon = styled(({ on, ...props }) => (<span {...props} />))`
     color: ${({ on }) => (on ? COLOR_ON : COLOR_OFF)};
     margin-right: 5px;
@@ -18,15 +18,15 @@ const StyledIcon = styled(({ on, ...props }) => (<span {...props} />))`
 `;
 
 const StarIcon = ({ on }) => (
-    < StyledIcon on={on} />
+  <StyledIcon on={on} />
 );
 
 StarIcon.propTypes = {
-    on: PropTypes.bool,
+  on: PropTypes.bool,
 };
 
 StarIcon.defaultProps = {
-    on: false,
+  on: false,
 };
 
 export default StarIcon;

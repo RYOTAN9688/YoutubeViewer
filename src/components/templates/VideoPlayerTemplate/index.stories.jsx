@@ -37,11 +37,11 @@ const RelatedVideosList = styled.div`
 `;
 
 export const Default = () => (
-    <VideoPlayerTemplate
-        headerContents={<Header>header</Header>}
-        playerContents={<Player>player</Player>}
-        videoInfoContents={<VideoInfo>videoInfo</VideoInfo>}
-        relatedVideosListContents={<RelatedVideosList>relatedVideosList</RelatedVideosList>}
-        {...actions('onScrollEnd')}
-    />
+  <VideoPlayerTemplate
+    headerContents={<Header>header</Header>}
+    playerContents={<Player>player</Player>}
+    videoInfoContents={<VideoInfo>videoInfo</VideoInfo>}
+    relatedVideosListContents={<RelatedVideosList>relatedVideosList</RelatedVideosList>}
+    {...actions('onScrollEnd')}
+  />
 );

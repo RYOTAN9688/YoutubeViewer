@@ -6,6 +6,6 @@ import ReactDOM from 'react-dom';
 const rootEl = document.getElementById('root');
 
 ReactDOM.render(
-    <h1>Hello react.</h1>,
-    rootEl,
+  <h1>Hello react.</h1>,
+  rootEl,
 );

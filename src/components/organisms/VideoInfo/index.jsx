@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import moment from "moment";
-import styled from "styled-components";
-import FavoriteButton from "../../molecules/FavoriteButton";
-import Typography from "../../atoms/Typography";
-import PaperButton from "../../atoms/Button/PaperButton";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import styled from 'styled-components';
+import FavoriteButton from '../../molecules/FavoriteButton';
+import Typography from '../../atoms/Typography';
+import PaperButton from '../../atoms/Button/PaperButton';
 
 const Root = styled.div`
   width: 100%;
@@ -25,7 +25,6 @@ const StyledFavoriteButton = styled(FavoriteButton)`
     flex-shrink: 0;
 `;
 
-
 const Description = styled(Typography)`
   margin-top: 10px;
   height: fit-content;
@@ -37,88 +36,85 @@ const Description = styled(Typography)`
   white-space: pre-wrap;
 `;
 
-//もっと見るボタンを押したときの見た目の制御
+// もっと見るボタンを押したときの見た目の制御
 export const VideoInfoPresenter = ({
-    videoId,
-    title,
-    description,
-    publishedAt,
-    viewCount,
+  videoId,
+  title,
+  description,
+  publishedAt,
+  viewCount,
 }) => {
-    //隠れた状態からスタート
-    const [showAllDescription, setShowAllDescription] = useState(false);
-    return (
-        <Root>
-            <TitleWrapper>
-                <Title size="subtitle" bold>{title}</Title>
-                <StyledFavoriteButton videoId={videoId} />
-            </TitleWrapper>
-            <Typography size="xs" color="gray">
-                {viewCount}
-                回視聴・
-                {publishedAt}
-            </Typography>
-            <Description showAllDescription={showAllDescription}>
-                {description}
-            </Description>
-            <PaperButton
-                onClick={() => setShowAllDescription(!showAllDescription)}
-            >
-                {showAllDescription ? '一部を表示' : 'もっと見る'}
-            </PaperButton>
-        </Root>
-    );
-}
+  // 隠れた状態からスタート
+  const [showAllDescription, setShowAllDescription] = useState(false);
+  return (
+    <Root>
+      <TitleWrapper>
+        <Title size="subtitle" bold>{title}</Title>
+        <StyledFavoriteButton videoId={videoId} />
+      </TitleWrapper>
+      <Typography size="xs" color="gray">
+        {viewCount}
+        回視聴・
+        {publishedAt}
+      </Typography>
+      <Description showAllDescription={showAllDescription}>
+        {description}
+      </Description>
+      <PaperButton
+        onClick={() => setShowAllDescription(!showAllDescription)}
+      >
+        {showAllDescription ? '一部を表示' : 'もっと見る'}
+      </PaperButton>
+    </Root>
+  );
+};
 VideoInfoPresenter.propTypes = {
-    videoId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    viewCount: PropTypes.string.isRequired,
-    publishedAt: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+  videoId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  viewCount: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 const VideoInfoContainer = ({
-    item: {
-        id: videoId,
-        snippet: {
-            publishedAt,
-            title,
-            description,
-        },
-        statistics: {
-            viewCount,
-        },
+  item: {
+    id: videoId,
+    snippet: {
+      publishedAt,
+      title,
+      description,
     },
-    presenter,
+    statistics: {
+      viewCount,
+    },
+  },
+  presenter,
 }) => (presenter({
-    videoId,
-    title,
-    viewCount,
-    publishedAt: moment(publishedAt).format("YYYY/MM/DD"),
-    description,//説明
+  videoId,
+  title,
+  viewCount,
+  publishedAt: moment(publishedAt).format('YYYY/MM/DD'),
+  description, // 説明
 }));
 
-
 VideoInfoContainer.propTypes = {
-    item: PropTypes.shape({
-        id: PropTypes.string,
-        snippet: PropTypes.shape({
-            publishedAt: PropTypes.string,
-            title: PropTypes.string,
-            description: PropTypes.string,
-        }),
-        statistics: PropTypes.shape({
-            viewCount: PropTypes.string,
-        }),
+  item: PropTypes.shape({
+    id: PropTypes.string,
+    snippet: PropTypes.shape({
+      publishedAt: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string,
     }),
-    presenter: PropTypes.func.isRequired,
+    statistics: PropTypes.shape({
+      viewCount: PropTypes.string,
+    }),
+  }),
+  presenter: PropTypes.func.isRequired,
 };
 
 export default (props) => (
-    <VideoInfoContainer
-        presenter={VideoInfoPresenter}
-        {...props}
-    />
+  <VideoInfoContainer
+    presenter={VideoInfoPresenter}
+    {...props}
+  />
 );
-
-

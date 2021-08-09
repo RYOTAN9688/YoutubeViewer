@@ -1,6 +1,6 @@
-import React from "react";
-import NotFoundPage from ".";
+import React from 'react';
+import NotFoundPage from '.';
 
-export default { title: "pages/NotFoundPage" };
+export default { title: 'pages/NotFoundPage' };
 
-export const nouFoundPage = () => <NotFoundPage />
+export const nouFoundPage = () => <NotFoundPage />;

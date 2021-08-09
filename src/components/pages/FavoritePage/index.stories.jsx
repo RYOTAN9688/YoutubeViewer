@@ -1,13 +1,13 @@
-import React from "react";
-import { FavoritePagePresenter as FavoritePage } from ".";
-import sampleData from "../../organisms/VideoList/sampleData.json";
+import React from 'react';
+import { FavoritePagePresenter as FavoritePage } from '.';
+import sampleData from '../../organisms/VideoList/sampleData.json';
 
-export default { title: "pages/FavoritePage" };
+export default { title: 'pages/FavoritePage' };
 
 export const favoritePage = () => <FavoritePage videos={sampleData} />;
 
 export const loading = () => <FavoritePage loading />;
-loading.story = { name: "取得中" };
+loading.story = { name: '取得中' };
 
 export const noResult = () => <FavoritePage videos={[]} />;
-noResult.story = { name: "結果が0件" };
+noResult.story = { name: '結果が0件' };

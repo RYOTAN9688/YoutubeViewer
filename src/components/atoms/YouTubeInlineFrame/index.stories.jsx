@@ -1,8 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import YouTubeInlineFrame from ".";
-
+import YouTubeInlineFrame from '.';
 
 const Wrapper = styled.div`
     position: relative;
@@ -10,11 +9,12 @@ const Wrapper = styled.div`
     height: 315px;
 `;
 
-export default { title: "atoms/YouTubeInlineFrame" };
+export default { title: 'atoms/YouTubeInlineFrame' };
 
 export const inlineFrame = () => (
-    <Wrapper>
-        <YouTubeInlineFrame
-            videoId="vilRUEgkHGI" />
-    </Wrapper>
+  <Wrapper>
+    <YouTubeInlineFrame
+      videoId="vilRUEgkHGI"
+    />
+  </Wrapper>
 );

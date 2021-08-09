@@ -1,9 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types"
-import styled from "styled-components";
-import NavigationLinks from "../NavigationLinks";
-import Typography from "~/components/atoms/Typography";
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import NavigationLinks from '../NavigationLinks';
+import Typography from '~/components/atoms/Typography';
 
 const Root = styled.div`
     width: 100%;
@@ -15,20 +14,20 @@ const StyledNavigationLinks = styled(NavigationLinks)`
 `;
 
 const Header = ({ className }) => (
-    <Root className={className}>
-        <Typography size="title" color="red" align="left">
-            YouTube Viewer
-        </Typography>
-        <StyledNavigationLinks />
-    </Root>
+  <Root className={className}>
+    <Typography size="title" color="red" align="left">
+      YouTube Viewer
+    </Typography>
+    <StyledNavigationLinks />
+  </Root>
 );
 
 Header.propTypes = {
-    className: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Header.defaultProps = {
-    className: "",
+  className: '',
 };
 
 export default Header;

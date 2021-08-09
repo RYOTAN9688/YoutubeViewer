@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import useOnScrollEnd from "../../../utils/useOnScrollEnd";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import useOnScrollEnd from '../../../utils/useOnScrollEnd';
 
-const pcSize = "(min-width: 1000px)";
+const pcSize = '(min-width: 1000px)';
 
 const Root = styled.div`
     width: 100%;
@@ -54,48 +54,48 @@ const SideContents = styled.div`
 `;
 
 const VideosListTemplate = ({
-    headerContents,
-    playerContents,
-    videoInfoContents,
-    relatedVideosListContents,
-    onScrollEnd,
+  headerContents,
+  playerContents,
+  videoInfoContents,
+  relatedVideosListContents,
+  onScrollEnd,
 }) => {
-    useOnScrollEnd(onScrollEnd);
-    return (
-        <Root>
-            <HeadrerWrapper>
-                {headerContents}
-            </HeadrerWrapper>
-            <FlexWrapper>
-                <MainContents>
-                    <PlayerWrapper>
-                        {playerContents}
-                    </PlayerWrapper>
-                    <VideoInfoWrapper>
-                        {videoInfoContents}
-                    </VideoInfoWrapper>
-                </MainContents>
-                <SideContents>
-                    {relatedVideosListContents}
-                </SideContents>
-            </FlexWrapper>
-        </Root>
-    );
+  useOnScrollEnd(onScrollEnd);
+  return (
+    <Root>
+      <HeadrerWrapper>
+        {headerContents}
+      </HeadrerWrapper>
+      <FlexWrapper>
+        <MainContents>
+          <PlayerWrapper>
+            {playerContents}
+          </PlayerWrapper>
+          <VideoInfoWrapper>
+            {videoInfoContents}
+          </VideoInfoWrapper>
+        </MainContents>
+        <SideContents>
+          {relatedVideosListContents}
+        </SideContents>
+      </FlexWrapper>
+    </Root>
+  );
 };
 
 VideosListTemplate.proptypes = {
-    headerContents: PropTypes.node,
-    playerContents: PropTypes.node.isRequired,
-    videoInfoContents: PropTypes.node,
-    relatedVideosListContents: PropTypes.node,
-    onScrollEnd: PropTypes.func,
+  headerContents: PropTypes.node,
+  playerContents: PropTypes.node.isRequired,
+  videoInfoContents: PropTypes.node,
+  relatedVideosListContents: PropTypes.node,
+  onScrollEnd: PropTypes.func,
 };
 
 VideosListTemplate.defaultProps = {
-    headerContents: null,
-    videoInfoContents: null,
-    relatedVideosListContents: null,
-    onScrollEnd: null,
+  headerContents: null,
+  videoInfoContents: null,
+  relatedVideosListContents: null,
+  onScrollEnd: null,
 };
 
 export default VideosListTemplate;
